@@ -7,24 +7,28 @@
 // @lc code=start
 class Solution {
 private:
-    std::vector<std::vector<int>> ans;
+    std::vector<std::vector<int>> _ans;
+
     void f(std::vector<int>& nums, int idx){
-        if(idx == nums.size()){
-            ans.push_back(nums);
+        int len = nums.size();
+
+        if(idx == len - 1){
+            _ans.push_back(nums);
+            return;
         }
-        else{
-            for(int k = idx; k < nums.size(); ++k){
-                std::swap(nums[idx], nums[k]);
-                f(nums, idx+1);
-                std::swap(nums[idx], nums[k]);
-            }
+
+        for(int i = idx; i < len; ++i){
+            std::swap(nums[idx], nums[i]);
+            f(nums, idx+1);
+            std::swap(nums[idx], nums[i]);
         }
-    }
+   } 
 public:
     std::vector<std::vector<int>> permute(std::vector<int>& nums) {
         f(nums, 0);
-        return ans;
+        return _ans;
     }
+
 };
 // @lc code=end
 

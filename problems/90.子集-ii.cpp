@@ -11,38 +11,51 @@
 // @lc code=start
 class Solution {
 private:
-    std::vector<int> path;
-    std::vector<std::vector<int>> ans;
+   std::vector<int> path;
+   std::set<std::vector<int>> _ans;
+   std::vector<std::vector<int>> ans;
 
-    void f(const std::vector<int>& nums, int i){
-        if(i == nums.size()){
-            ans.push_back(path);
-            return; 
+   void f(std::vector<int>& nums, int idx){
+        int len = nums.size();
+        if(idx == len){
+            _ans.insert(path);
+            return;
         }
         else{
+            path.push_back(nums[idx]);
+            f(nums, idx+1);
+            path.pop_back();
+            f(nums, idx+1);
+        }
+   }
 
-            int j = i + 1;
-            while(j < nums.size() && nums[j] == nums[i]){
+   void f2(std::vector<int>& nums, int idx){
+        int len = nums.size();
+        if(idx == len){
+            ans.push_back(path);
+            return;
+        }
+        else{
+            int j = idx + 1;
+            while(j < len && nums[j] == nums[idx]){
                 ++j;
             }
-            
 
-            f(nums, j);//path不包含nums[i]递归
-            for(int k = i; k < j; ++k){
+            f2(nums, j);
+            for(int k = idx; k < j; ++k){
                 path.push_back(nums[k]);
-                f(nums, j);
+                f2(nums,j);
             }
 
-            // 回溯：弹出所有添加的当前元素
-            for (int k = i; k < j; ++k) {
+            for(int k = idx; k < j; ++k){
                 path.pop_back();
             }
         }
-    }
+   }
 public:
     std::vector<std::vector<int>> subsetsWithDup(std::vector<int>& nums) {
         std::sort(nums.begin(), nums.end());
-        f(nums, 0);
+        f2(nums, 0);
         return ans;
     }
 };

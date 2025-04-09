@@ -1,26 +1,26 @@
-CC=g++
-flag=-Wall -O2
-debug_flag=-g
-source=draft.cpp
-target=draft.out
-debug_target=debug.out
+CXX := g++
+CXXFLAGS := -Wall -O2
+DEBUG_CXXFLAGS := -g
 
-$(target):$(source)
-	$(CC) $(flag) $< -o $@
+SRC := debug.cpp
+TARGET_EXEC := debug.out
+DEBUG_EXEC := debug.out
 
-$(debug_target):$(source)
-	$(CC) $(debug_flag) $< -o $@
+all: $(TARGET_EXEC)
 
-all:$(target)
-	$(CC) $(flag) $< -o $@
+$(TARGET_EXEC): $(SRC)
+	$(CXX) $(CXXFLAGS) $< -o $@
 
-run:$(target)
-	./$(target)
+$(DEBUG_EXEC): $(SRC)
+	$(CXX) $(DEBUG_CXXFLAGS) $< -o $@
 
-debug:$(debug_target)
-	gdb $(debug_target)
+run: $(TARGET_EXEC)
+	./$<
+
+debug: $(DEBUG_EXEC)
+	gdb $<
 
 clean:
-	rm -rf $(target) $(debug_target)
+	rm -f $(TARGET_EXEC) $(DEBUG_EXEC)
 
-.PHONY:all run debug clean
+.PHONY: all run debug clean

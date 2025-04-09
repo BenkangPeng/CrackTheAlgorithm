@@ -21,31 +21,29 @@ class Solution {
 private:
     int yes;
     int no;
+
     void f(TreeNode* root){
-        if(root->left == nullptr && root->right == nullptr){
-            yes = root->val;
+        if(root == nullptr){
+            yes = 0;
             no = 0;
+            return;
         }
-        else{
-            int y = root->val;
-            int n = 0;
+        
+        int y = root->val;
+        int n = 0;
 
-            if(root->left){
-                f(root->left);
-                y += no;
-                n += std::max(yes, no);
-            }
+        f(root->left);
+        y += no;
+        n += std::max(yes, no);
 
-            if(root->right){
-                f(root->right);
-                y += no;
-                n += std::max(yes, no);
-            }
+        f(root->right);
+        y += no;
+        n += std::max(yes, no);
 
-            yes = y;
-            no  = n;
-        }
+        yes = y;
+        no = n;
     }
+
 public:
     int rob(TreeNode* root) {
         f(root);
