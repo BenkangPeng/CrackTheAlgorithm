@@ -1,4 +1,4 @@
-*.out
+*.exe
 debug.cpp
 */**/*.exe
 .vscode/

@@ -1,12 +1,12 @@
-CXX := g++
-CXXFLAGS := -Wall -O2
-DEBUG_CXXFLAGS := -g
+CXX = g++
+CXXFLAGS = -Wall -O2
+DEBUG_CXXFLAGS = -g -O0
 
-SRC := debug.cpp
-TARGET_EXEC := debug.out
-DEBUG_EXEC := debug.out
+SRC = debug.cpp
+TARGET_EXEC = main
+DEBUG_EXEC = debug_proj
 
-all: $(TARGET_EXEC)
+all: $(TARGET_EXEC) $(DEBUG_EXEC)
 
 $(TARGET_EXEC): $(SRC)
 	$(CXX) $(CXXFLAGS) $< -o $@

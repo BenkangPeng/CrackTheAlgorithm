@@ -18,6 +18,10 @@ class sort_{
 
             std::vector<T> _arr(arr);            
 
+            /**
+             * i = 0, 遍历[i+1,length)*选择*出其中的最小值，与nums[i]交换
+             * i = 1...length
+             */
             for(int i = 0 ; i < len ; i++){
                 int min_idx = i;
                 for(int j = i + 1 ; j < len ; j++){
@@ -36,6 +40,10 @@ class sort_{
 
             std::vector<T> _arr(arr);
 
+            /**
+             * 设置水面(end = len-1), 让[0,end]的元素逐个比较大小，将大的数向高索引方向交换(向水面冒泡)
+             * 不断降低水面: end--
+             */
             for(int end = len - 1 ; end > 0 ; end--){
                 for(int i = 0 ; i < end ; i++){
                     if(_arr[i] > _arr[i+1]) swap(_arr[i] , _arr[i+1]);
@@ -52,6 +60,11 @@ class sort_{
 
             std::vector<T> _arr(arr);
 
+            /**
+             * 想象你手握一副乱序的牌，选定i, 比较i-1与i牌的大小，将小的牌往左手边挪动；再去比较i-2与i-1大小
+             * 逐渐增大i直到右手边
+             * 注意，当j小于j+1时，这时没比较继续比较j-1与j,j-2与j-1了，因为j左侧所有牌此时已经排好序(想想是不是)
+             */
             for(int i = 1 ; i < len ; i++){
                 for(int j = i-1 ; j >= 0 && _arr[j] > _arr[j+1]; j--){
                     swap(_arr[j] , _arr[j+1]);
