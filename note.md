@@ -446,7 +446,7 @@ int main() {
 
 ### class027
 
-* 所有结点进一个容器，排序，再连接：$O(n) + O(nlogn) + O(n) = O(nlogn)$ , 空间复杂度$$O(n)$$
+* 所有结点进一个容器，排序，再连接：$\boxed{O(n) + O(nlogn) + O(n) = O(nlogn)}$ , 空间复杂度$$O(n)$$
 
 
 
@@ -483,9 +483,9 @@ int main() {
 可得：
 
 - `slow` 走过的距离为 `z`
-- 设 `fast` 已经走过了 `k`个环，$k≥0$，对应的距离为 $z+k(x+y)+x$
+- 设 `fast` 已经走过了 `k`个环，$k≥0$，对应的距离为 $\boxed{z+k(x+y)+x}$
 
-由`fast`的速度是`slow`的两倍，得：$z + k(x+y)+x = 2z$ , 化简得$z = k(x+y)+x$
+由`fast`的速度是`slow`的两倍，得：$\boxed{z + k(x+y)+x = 2z}$ , 化简得$\boxed{z = k(x+y)+x}$
 
 ![0208_4.png](images/1715514562-KmTrNr-0208_4.png)
 
@@ -494,7 +494,7 @@ int main() {
 ![0208_5.png](images/1715514566-cEsEBC-0208_5.png)
 
 因为此前`x+y` 为环长，所以弧 `CA` 的长度为 `x`。
-此时我们另用一橙色指针 `ptr` (pointer) 指向 `head`，如下所示。并使 `ptr` 和 `slow` 保持 1 个单位的速度前进，在经过 $z=x+k(x+y)$ 步后，可在 `A` 处相遇(`slow`从C出发，走$x + k(x+y)$的距离，相当于绕环`k`圈回到C ， 再走`x`到A)。证毕。
+此时我们另用一橙色指针 `ptr` (pointer) 指向 `head`，如下所示。并使 `ptr` 和 `slow` 保持 1 个单位的速度前进，在经过 $\boxed{z=x+k(x+y)}$ 步后，可在 `A` 处相遇(`slow`从C出发，走$\boxed{x + k(x+y)}$的距离，相当于绕环`k`圈回到C ， 再走`x`到A)。证毕。
 
 ![0208_6.png](images/1715514569-ATwmZT-0208_6.png)
 

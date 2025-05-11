@@ -1,4 +1,3 @@
 *.exe
 debug.cpp
 */**/*.exe
-.vscode/

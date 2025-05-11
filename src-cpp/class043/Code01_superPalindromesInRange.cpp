@@ -105,6 +105,6 @@ public:
 int main(){
     Solution s;
 
-    std::string left = "38455498359", right = "999999999999999999";
+    std::string left = "1", right = "9999";
     std::cout << s.superpalindromesInRange(left, right);
 }
