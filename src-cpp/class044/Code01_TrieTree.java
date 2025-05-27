@@ -66,7 +66,7 @@ public class Code02_TrieTree {
 			int cur = 1;
 			for (int i = 0, path; i < word.length(); i++) {
 				path = word.charAt(i) - 'a';
-				if (pass[tree[cur][path]]-- == 0) {
+				if (--pass[tree[cur][path]] == 0) {
 					tree[cur][path] = 0;
 					return;
 				}
