@@ -7,7 +7,7 @@ import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.util.Arrays;
 
-public class Code02_TrieTree {
+public class Code01_TrieTree {
 
 	public static int MAXN = 150001;
 
