@@ -40,29 +40,13 @@ public:
   void erase(const std::string &word) {
     if (countWords(word) > 0) {
       int node = 0;
-      int last_branch = 0;
-      char last_char = 0;
-
-      for (char ch : word) {
-        int idx = ch - 'a';
-        // 记录最后可能删除的分支
-        if (pass[node] == 1) {
-          last_branch = node;
-          last_char = idx;
-        }
-
-        // 更新当前节点的pass并移动到子节点
-        pass[node]--;
-        node = tree[node][idx];
+      int idx = 0;
+      for(auto ch: word){
+        idx = ch - 'a';
+        node = tree[node][idx];//先跳到下一个node，，再减pass[node]
+        --pass[node];
       }
-      // 更新最后一个节点的pass和end
-      pass[node]--;
-      end[node]--;
-
-      // 删除分支（如果pass变为0）
-      if (last_branch != 0) {
-        tree[last_branch][last_char] = 0;
-      }
+      --end[node];
     }
   }
 
