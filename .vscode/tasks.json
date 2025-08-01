@@ -6,6 +6,7 @@
       "command": "D:\\software\\mingw64\\bin\\g++.exe",
       "args": [
         "-fdiagnostics-color=always",
+        "-O0",
         "-g",
         "${file}",
         // "-I /path/to/includeFile/" //can also set the include file path
