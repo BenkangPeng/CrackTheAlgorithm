@@ -1,5 +1,5 @@
+/// 一道综合前缀和,二维差分的hard problem
 /// https://leetcode.cn/problems/stamping-the-grid/
-
 #include <iostream>
 #include <utility>
 #include <vector>
@@ -63,17 +63,20 @@ public:
     int m = grid.size(), n = grid[0].size();
     auto prefixSum = getPrefixSum(grid);
     auto diff = getDiff(grid);
+
+    /// 遍历grid上每一个点
     for (int i = 0, c = i + stampHeight - 1; i < m && c < m; ++i, ++c) {
       for (int j = 0, d = j + stampWidth - 1; j < n && d < n; ++j, ++d) {
         /// 如果区域(i,j)  (i+stampHeight-1,
         /// j+stampWidth-1)全是0,那么可以贴一张邮票
         if (sumRegion(prefixSum, grid, i, j, c, d) == 0) {
+          /// 对该区域贴一张邮票
           regionOp(diff, i, j, c, d, 1);
         }
       }
     }
 
-    /// 检查贴过邮票后,格子中是否还有零
+    /// 检查贴过邮票后,检查格子中是否还有零
     for (int i = 1; i <= m; ++i) {
       for (int j = 1; j <= n; ++j) {
         /// 还原grid
@@ -91,7 +94,7 @@ public:
 // int main() {
 //   Solution ss;
 //   std::vector<std::vector<int>> vec = {
-//       {1, 0, 0, 0}, {0, 1, 0, 0}, {0, 0, 1, 0}, {0, 0, 0, 1}};
+//       {1, 0, 0, 0},   {0, 1, 0, 0}, {0, 0, 1, 0}, {0, 0, 0, 1}};
 
 //   std::cout << ss.possibleToStamp(vec, 2, 2) << std::endl;
 // }
