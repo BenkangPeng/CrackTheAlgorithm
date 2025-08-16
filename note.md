@@ -714,6 +714,16 @@ public:
 
 ### class048
 
+[304. 二维区域和检索 - 矩阵不可变 - 力扣（LeetCode）](https://leetcode.cn/problems/range-sum-query-2d-immutable/description/)
+
+[1139. 最大的以 1 为边界的正方形 - 力扣（LeetCode）](https://leetcode.cn/problems/largest-1-bordered-square/description/)
+
+[【模板】二维差分_牛客题霸_牛客网](https://www.nowcoder.com/practice/50e1a93989df42efb0b1dec386fb4ccc)
+
+[2132. 用邮票贴满网格图 - 力扣（LeetCode）](https://leetcode.cn/problems/stamping-the-grid/description/)
+
+[LCP 74. 最强祝福力场 - 力扣（LeetCode）](https://leetcode.cn/problems/xepqZ5/description/)
+
 #### 二维差分
 
 * 回顾一维差分
@@ -797,4 +807,14 @@ for (int i = 1; i <= n; ++i) {
     }
   }
 ```
+
+
+
+### class049
+
+
+
+
+
+
 
