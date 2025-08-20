@@ -1,6 +1,7 @@
 /// https://leetcode.cn/problems/decode-ways/
 #include <string>
 #include <vector>
+#include<iostream>
 
 /// 递归调用, 记忆化搜索
 class Solution1 {
@@ -12,6 +13,7 @@ public:
   }
 
 private:
+  /// 从idx开始, 共多少种解码方式
   int f(const std::string &s, int idx, std::vector<int> &dp) {
     if (dp[idx] != -1) {
       return dp[idx];
@@ -74,3 +76,45 @@ public:
     return dp[0];
   }
 };
+
+/// 继续优化, 省空间
+class Solution3 {
+public:
+  int numDecodings(const std::string &s) {
+
+    int n = s.size();
+    int nextNext = 1; // idx=n时解码种数
+    int next = 0;
+    if (s[n - 1] != '0') {
+      next = 1;
+    }
+    /// 特判
+    if(n == 1){
+      return next;
+    }
+
+    int cur = 0;
+    for (int i = n - 2; i >= 0; --i) {
+      cur = 0;
+      if (s[i] != '0') {
+        cur += next;
+      }
+
+      int tmp = (s[i] - '0') * 10 + (s[i + 1] - '0');
+      if (tmp > 9 && tmp < 27) {
+        cur += nextNext;
+      }
+
+      nextNext = next;
+      next = cur;
+    }
+
+    return cur;
+  }
+};
+
+int main(){
+  std::string s = "226";
+  Solution3 ss;
+  std::cout << ss.numDecodings(s) << std::endl;
+}
