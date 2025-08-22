@@ -5,18 +5,18 @@
 /// 用dp表存储以各字符结尾的子串个数, 例如dp[0]表示以'a'结尾的满足条件的子串个数
 
 #include <algorithm>
-#include <iostream>
 #include <numeric>
 #include <string>
 #include <vector>
 class Solution {
 public:
   int findSubstringInWraproundString(const std::string &s) {
-    /// 用dp表存储以各字符结尾的子串个数,
+    /// 用dp表存储以各字符结尾的,满足条件的子串个数,
     /// 例如dp[0]表示以'a'结尾的满足条件的子串个数
     std::vector<int> dp(26, 0);
 
     int n = s.size();
+    /// 将字符转成整数, 以便代码清晰
     std::vector<int> sv(n, 0);
     int i = 0;
     for (char ch : s) {
@@ -28,7 +28,10 @@ public:
 
     /// 累计的有效子串长度
     int max_len = 1;
+
     for (int i = 1; i < n; ++i) {
+      /// 判断sv[i-1]与sv[i]是否为相邻字符
+      /// sv[i-1]与sv[i]是相邻字符  || sv[i-1] = 'z',sv[i] = 'a'
       if (sv[i] - 1 == sv[i - 1] || (sv[i] == 0 && sv[i - 1] == 25)) {
         ++max_len;
         dp[sv[i]] = std::max(dp[sv[i]], max_len);
