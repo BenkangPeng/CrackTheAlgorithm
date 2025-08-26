@@ -1,10 +1,11 @@
 /// 516
 /// https://leetcode.cn/problems/longest-palindromic-subsequence/description/
 #include <algorithm>
+#include <iterator>
 #include <string>
 #include <vector>
 
-class Solution {
+class Solution1 {
 public:
   int longestPalindromeSubseq(std::string s) {
     int n = s.size();
@@ -38,5 +39,28 @@ private:
     }
     dp[i][j] = ans;
     return ans;
+  }
+};
+
+/// 严格位置依赖DP
+class Solution {
+public:
+  int longestPalindromeSubseq(std::string s) {
+    /// 由上面的递归解法可知, f(i,j)依赖于f(i,j-1),f(i+1,j),f(i+1,j-1)
+
+    int n = s.size();
+    std::vector<std::vector<int>> dp(n + 2, std::vector<int>(n + 2, 0));
+
+    for (int i = n; i >= 1; --i) {
+      for (int j = i; j <= n; ++j) {
+        if (s[i - 1] == s[j - 1]) {
+          dp[i][j] = (i == j) ? 1 : (2 + dp[i + 1][j - 1]);
+        } else {
+          dp[i][j] = std::max(dp[i][j - 1], dp[i + 1][j]);
+        }
+      }
+    }
+
+    return dp[1][n];
   }
 };
