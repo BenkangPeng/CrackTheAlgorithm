@@ -36,6 +36,13 @@
 :file_folder:[class048 二维前缀和 二维差分 离散化](./src-cpp/class048)
 :file_folder:[class049 滑动窗口](./src-cpp/class049)
 :file_folder:[class050 双指针](./src-cpp/class050)
+
+[922. 按奇偶排序数组 II - 力扣（LeetCode）](https://leetcode.cn/problems/sort-array-by-parity-ii/description/)
+
+[287. 寻找重复数 - 力扣（LeetCode）](https://leetcode.cn/problems/find-the-duplicate-number/description/)
+
+[42. 接雨水 - 力扣（LeetCode）](https://leetcode.cn/problems/trapping-rain-water/description/)
+
 :file_folder:[class051 xxx](./src-cpp/class051)
 :file_folder:[class052 xxx](./src-cpp/class052)
 :file_folder:[class053 xxx](./src-cpp/class053)
