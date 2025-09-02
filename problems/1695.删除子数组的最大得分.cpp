@@ -20,7 +20,7 @@ public:
       }
       sum += nums[r];
 
-      while (cnt > r - l + 1) {
+      while (cnt < r - l + 1) {
         if (--map[nums[l]] == 0) {
           --cnt;
         }
