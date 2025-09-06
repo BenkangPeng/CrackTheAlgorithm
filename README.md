@@ -43,6 +43,14 @@
 
 [42. 接雨水 - 力扣（LeetCode）](https://leetcode.cn/problems/trapping-rain-water/description/)
 
+[881. 救生艇 - 力扣（LeetCode）](https://leetcode.cn/problems/boats-to-save-people/description/)
+
+[11. 盛最多水的容器 - 力扣（LeetCode）](https://leetcode.cn/problems/container-with-most-water/description/)
+
+[475. 供暖器 - 力扣（LeetCode）](https://leetcode.cn/problems/heaters/description/)
+
+[41. 缺失的第一个正数 - 力扣（LeetCode）](https://leetcode.cn/problems/first-missing-positive/description/) ⭕TODO
+
 :file_folder:[class051 xxx](./src-cpp/class051)
 :file_folder:[class052 xxx](./src-cpp/class052)
 :file_folder:[class053 xxx](./src-cpp/class053)
