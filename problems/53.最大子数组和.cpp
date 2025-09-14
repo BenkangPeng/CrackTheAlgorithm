@@ -7,7 +7,7 @@
 #include <climits>
 #include <vector>
 // @lc code=start
-class Solution {
+class Solution0 {
 public:
   int maxSubArray(std::vector<int> &nums) {
     int n = nums.size();
@@ -26,6 +26,42 @@ public:
       }
       ans = std::max(ans, dp[i]);
     }
+    return ans;
+  }
+};
+
+/// 上面方法空间复杂度太高了,不用前缀和，用动态规划
+class Solution1 {
+public:
+  int maxSubArray(std::vector<int> &nums) {
+    int n = nums.size();
+    /// dp[i]表示以nums[i]结尾的子数组的最大和
+    std::vector<int> dp(n, 0);
+
+    int ans = std::max(0, nums[0]);
+    dp[0] = nums[0];
+    for (int i = 1; i < n; ++i) {
+      dp[i] = std::max(dp[i - 1], 0) + nums[i];
+      ans = std::max(dp[i], ans);
+    }
+
+    return ans;
+  }
+};
+
+/// 进一步省空间
+class Solution {
+public:
+  int maxSubArray(std::vector<int> &nums) {
+    int n = nums.size();
+
+    int dp = nums[0];
+    int ans = dp;
+    for (int i = 1; i < n; ++i) {
+      dp = std::max(dp, 0) + nums[i];
+      ans = std::max(dp, ans);
+    }
+
     return ans;
   }
 };
