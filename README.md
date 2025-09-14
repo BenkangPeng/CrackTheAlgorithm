@@ -51,7 +51,16 @@
 
 [41. 缺失的第一个正数 - 力扣（LeetCode）](https://leetcode.cn/problems/first-missing-positive/description/) ⭕TODO
 
-:file_folder:[class051 xxx](./src-cpp/class051)
+:file_folder:[class051 二分答案法](./src-cpp/class051)
+
+[875. 爱吃香蕉的珂珂 - 力扣（LeetCode）](https://leetcode.cn/problems/koko-eating-bananas/description/)
+
+[410. 分割数组的最大值 - 力扣（LeetCode）](https://leetcode.cn/problems/split-array-largest-sum/description/)
+
+[机器人跳跃问题_牛客题霸_牛客网](https://www.nowcoder.com/practice/7037a3d57bbd4336856b8e16a9cafd71)
+
+[719. 找出第 K 小的数对距离 - 力扣（LeetCode）](https://leetcode.cn/problems/find-k-th-smallest-pair-distance/description/)
+
 :file_folder:[class052 xxx](./src-cpp/class052)
 :file_folder:[class053 xxx](./src-cpp/class053)
 :file_folder:[class054 xxx](./src-cpp/class054)
