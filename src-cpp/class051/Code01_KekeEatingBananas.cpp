@@ -20,7 +20,7 @@ public:
       if (f(piles, mid) <= h) {
         r = mid - 1;
         ans = mid;
-      } else {
+      } else {// > h
         l = mid + 1;
       }
     }
